@@ -1,0 +1,30 @@
+{
+  "name": "tkw25.nhom27",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./src/styles.css -o ./public/output.css --watch",
+    "start": "live-server public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhoaCongNgheSoUTE/tkw25.nhom27.git"
+  },
+  "keywords": [],
+  "author": "CD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KhoaCongNgheSoUTE/tkw25.nhom27/issues"
+  },
+  "homepage": "https://github.com/KhoaCongNgheSoUTE/tkw25.nhom27#readme",
+  "dependencies": {
+    "gsap": "^3.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.0.0"
+  }
+}

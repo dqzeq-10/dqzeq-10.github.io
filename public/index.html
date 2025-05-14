@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kỷ Niệm 50 Năm Ngày Giải Phóng Miền Nam, Thống Nhất Đất Nước</title>
+  <link href="output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="images/vietnam-flag.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css?
+      family=Be+Vietnam+Pro:300,400,500,700
+      &subset=vietnamese,latin-ext" rel="stylesheet">
+  <style>
+    /* GSAP initial states */
+    .gsap-reveal {
+      transform: translateY(30px);
+    }
+
+    .gsap-reveal-left {
+      transform: translateX(-30px);
+    }
+
+    .gsap-reveal-right {
+      transform: translateX(30px);
+    }
+
+    /* Header animation */
+    @keyframes headerFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      animation: headerFadeIn 0.8s ease forwards;
+    }
+
+    /* Text shadow for better readability */
+    header .text-white,
+    header .text-vietnam-yellow {
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Mobile menu toggle animation */
+    #menuButton {
+      transition: transform 0.3s ease;
+    }
+
+    #menuButton.active {
+      transform: rotate(90deg);
+    }
+
+    /* Mobile menu animation */
+    #mobileMenu {
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    #mobileMenu.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Hero Section Styles - GSAP Inspiration */
+    :root {
+      --vietnam-red: rgb(218, 37, 29);
+      --vietnam-dark-red: #ae0000;
+      --vietnam-yellow: #ffcd00;
+      --vietnam-gold: #ffb700;
+    }
+
+    /* Hero background layers */
+    .hero-bg {
+      background: linear-gradient(135deg, var(--vietnam-red) 0%, var(--vietnam-dark-red) 100%);
+    }
+
+    .hero-grid {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .hero-stars {
+      background-image: radial-gradient(circle at center, rgba(255, 205, 0, 0.1) 0, transparent 12px);
+      background-size: 150px 150px;
+    }
+
+    .hero-flag-overlay {
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    }
+
+    .hero-historical-dots {
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Ccircle cx='10' cy='10' r='2' /%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Flying elements */
+    .flying-element {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .star-1 {
+      width: 40px;
+      height: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffcc00' d='M100,10L120,80L190,80L130,120L150,190L100,150L50,190L70,120L10,80L80,80L100,10Z' /%3E%3C/svg%3E");
+      top: 20%;
+      left: 15%;
+    }
+
+    .star-2 {
+      width: 30px;
+      height: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0  0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffcc00' d='M100,10L120,80L190,80L130,120L150,190L100,150L50,190L70,120L10,80L80,80L100,10Z' /%3E%3C/svg%3E");
+      bottom: 30%;
+      right: 15%;
+    }
+
+    .circle-1 {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 205, 0, 0.2);
+      top: 15%;
+      right: 20%;
+    }
+
+    .circle-2 {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 205, 0, 1);
+      bottom: 15%;
+      left: 10%;
+    }
+
+    .light-beam {
+      width: 3px;
+      height: 150px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent);
+      transform: rotate(45deg);
+      top: 10%;
+      left: 30%;
+    }
+
+    .flag-ribbon {
+      width: 300px;
+      height: 200px;
+      background: linear-gradient(to bottom, var(--vietnam-red) 0%, var(--vietnam-red) 50%, rgb(51, 153, 255) 50%, rgb(51, 153, 255) 100%);
+      top: 40%;
+      right: 10%;
+      transform: rotate(-15deg);
+      border-radius: 3px;
+
+    }
+
+    .flag-ribbon::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      /* điều chỉnh độ lớn */
+      height: 120px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: gold;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%,
+          68% 57%, 79% 91%, 50% 70%,
+          21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+
+
+
+
+
+    /* Text animation styles */
+    .chars-container {
+      display: block;
+      /* opacity: 0; */
+    }
+
+    .hero-title {
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-subtitle {
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* 3D Flag container */
+    .perspective-container {
+      perspective: 1000px;
+    }
+
+    .transform-3d {
+      transform-style: preserve-3d;
+    }
+
+    /* Button styles */
+    .explore-btn {
+      transition: all 0.4s ease;
+    }
+
+    .btn-bg {
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .explore-btn:hover .btn-bg {
+      transform: translateY(0);
+    }
+
+    /* Scroll indicator */
+    .chevron-container {
+      width: 30px;
+      height: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+    }
+
+    /* Animation container với khung viền trang trí */
+    #animation-container {
+      overflow: hidden;
+      min-height: 200px;
+      background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(128, 0, 0, 0.6) 100%);
+      border: none;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      position: relative;
+      border-radius: 0.5rem;
+    }
+
+    #animation-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 3px;
+      background: linear-gradient(135deg, #ffcc00, #d80000, #ffcc00);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      border-radius: 0.5rem;
+    }
+
+    #vietnam-flag-animation {
+      transform-origin: center;
+    }
+
+    #animation-text,
+    #animation-date,
+    #animation-quote {
+      transform: translateY(20px);
+      opacity: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Thêm CSS cho Hero Section background */
+    .hero-background {
+      background: linear-gradient(135deg, #d80000 0%, #d40000 50%, #ae0000 100%);
+      background-size: 200% 200%;
+      z-index: -3;
+      opacity: 0.95;
+    }
+
+    .bg-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50,0 L60,30 L95,30 L65,50 L75,80 L50,65 L25,80 L35,50 L5,30 L40,30 Z' fill='%23ffff00' fill-opacity='0.2'/%3E%3C/svg%3E");
+      background-size: 100px 100px;
+      z-index: -2;
+    }
+
+    .overlay-gradient {
+      background: radial-gradient(ellipse at center,
+          rgba(174, 0, 0, 0.1) 0%,
+          rgba(174, 0, 0, 0.5) 60%,
+          rgba(0, 0, 0, 0.8) 100%);
+      z-index: -1;
+    }
+
+    /* CSS cho nút trong Hero Section */
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #ffcc00 0%, #ffb700 100%);
+      color: #8b0000 !important;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 0.375rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 0 12px rgba(255, 204, 0, 0.3);
+      transform: translateY(0);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 16px rgba(255, 204, 0, 0.5);
+    }
+
+    /* Hiệu ứng animation cho lá cờ và hero section */
+    #hero h1,
+    #hero h2,
+    #hero p {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    /* CSS cho lá cờ Mặt trận dân tộc giải phóng miền Nam */
+    .nlf-flag-stripes {
+      background: repeating-linear-gradient(180deg,
+          rgba(198, 0, 0, 0.15) 0%,
+          rgba(198, 0, 0, 0.15) 33.3%,
+          rgba(0, 94, 180, 0.15) 33.3%,
+          rgba(0, 94, 180, 0.15) 66.6%,
+          rgba(255, 204, 0, 0.15) 66.6%,
+          rgba(255, 204, 0, 0.15) 100%);
+      opacity: 0;
+      z-index: -1;
+      transform: scale(1.2);
+    }
+
+    /* Hiệu ứng quét sáng trên text */
+    @keyframes shine {
+      0% {
+        background-position: -100px;
+      }
+
+      20% {
+        background-position: 350px;
+      }
+
+      100% {
+        background-position: 350px;
+      }
+    }
+
+    #hero-main-title {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* #hero-main-title::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(255, 255, 255, 0) 100%);
+      background-size: 100px 100%;
+      animation: shine 4s infinite;
+      animation-delay: 3s;
+    } */
+
+    /* Hiệu ứng tia sáng */
+    @keyframes rotate-rays {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .light-rays {
+      position: absolute;
+      opacity: 0;
+      left: 50%;
+      top: 50%;
+      width: 150%;
+      height: 150%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23ffcc00' stroke-width='1'%3E%3Cline x1='400' y1='0' x2='400' y2='800'/%3E%3Cline x1='0' y1='400' x2='800' y2='400'/%3E%3Cline x1='110' y1='110' x2='690' y2='690'/%3E%3Cline x1='110' y1='690' x2='690' y2='110'/%3E%3Cline x1='200' y1='40' x2='600' y2='760'/%3E%3Cline x1='200' y1='760' x2='600' y2='40'/%3E%3Cline x1='40' y1='200' x2='760' y2='600'/%3E%3Cline x1='40' y1='600' x2='760' y2='200'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
+      background-size: contain;
+      z-index: -2;
+      animation: rotate-rays 160s linear infinite;
+      mix-blend-mode: overlay;
+    }
+
+    /* Hiệu ứng mũi tên cuộn xuống */
+    @keyframes float-arrow {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes pulse-arrow {
+
+      0%,
+      100% {
+        opacity: 0.7;
+      }
+
+      50% {
+        opacity: 1;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .scroll-arrow {
+      animation: float-arrow 2s ease-in-out infinite,
+        pulse-arrow 2s ease-in-out infinite;
+    }
+
+    /* Hiệu ứng cuộn - thay đổi header khi người dùng cuộn xuống */
+    .nav-scroll {
+      background: rgba(174, 0, 0, 0.95) !important;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      padding: 0.25rem 0 !important;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-scroll a {
+      color: white !important;
+    }
+
+    .nav-scroll a:hover {
+      color: var(--vietnam-yellow) !important;
+    }
+
+    .nav-scroll #logo {
+      transform: scale(0.85);
+      transition: all 0.3s ease;
+    }
+
+    .nav-scroll .border-vietnam-yellow {
+      border-color: rgba(255, 205, 0, 0.7) !important;
+    }
+
+    /* Better responsive text for smaller screens */
+    @media (max-width: 640px) {
+      header nav {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      #logo {
+        height: 2.5rem;
+      }
+    }
+
+    /* Hiệu ứng hover cho menu items */
+    #navMenu a {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* #navMenu a:not(.bg-vietnam-yellow)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--vietnam-yellow);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    } */
+
+    #navMenu a:not(.bg-vietnam-yellow):hover::after {
+      transform: translateX(0);
+    }
+
+    /* Thêm CSS cho nút trong Hero Section */
+    .btn-primary {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #ffcc00 0%, #ffb700 100%);
+      color: #8b0000;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 0.375rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 0 12px rgba(255, 204, 0, 0.3);
+      transform: translateY(0);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 16px rgba(255, 204, 0, 0.5);
+    }
+
+    .gallery-3d-stage,
+    .gallery-3d-ring,
+    .gallery-3d-img {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      user-select: none;
+    }
+
+    .gallery-3d-stage {
+      position: relative;
+      overflow: hidden;
+      height: 650px;
+      /* Tăng chiều cao để phù hợp với hình dọc */
+    }
+
+    .gallery-3d-container {
+      perspective: 3500px;
+      /* Tăng perspective để nhìn rõ hình ở xa hơn */
+      width: 270px;
+      /* Điều chỉnh chiều rộng phù hợp với tỷ lệ 9:16 */
+      height: 480px;
+      /* Chiều cao = chiều rộng * 16/9 */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .gallery-3d-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .gallery-3d-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 205, 0, 0.5);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      background-color: #000;
+      background-repeat: no-repeat;
+      /* Thêm dòng này để ngăn lặp lại */
+      background-position: center;
+      background-size: contain
+    }
+
+    .gallery-3d-img-inner {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      /* Giữ nguyên để hiển thị đủ hình ảnh */
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Thiết lập responsive cho gallery */
+    @media (max-width: 768px) {
+      .gallery-3d-stage {
+        height: 550px;
+      }
+
+      .gallery-3d-container {
+        width: 225px;
+        /* Tỷ lệ 9:16 cho thiết bị nhỏ hơn */
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-100 font-sans text-gray-800"> <!-- Header with navigation -->
+  <header
+    class="fixed w-full bg-gradient-to-r from-vietnam-dark-red to-vietnam-red bg-opacity-95 shadow-md z-50 backdrop-blur-sm transition-all duration-300">
+    <div class="absolute inset-0 overflow-hidden">
+      <!-- Decorative elements in header background -->
+      <div
+        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-vietnam-yellow to-transparent opacity-40">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-vietnam-yellow via-transparent to-vietnam-yellow opacity-30">
+      </div>
+    </div>
+    <nav class="container mx-auto px-4 py-3 flex justify-between items-center relative">
+      <div class="flex items-center space-x-3">
+        <div class="relative">
+          <img src="images/vietnam-flag.svg" alt="Cờ Việt Nam" class="h-12 w-auto transition-transform duration-300"
+            id="logo">
+        </div>
+        <div class="border-l-2 border-vietnam-yellow border-opacity-50 pl-3">
+          <span class="text-white font-bold text-xl font-serif tracking-tight leading-tight hidden sm:inline-block">Kỷ
+            Niệm 50 Năm<br><span class="text-vietnam-yellow text-lg">Giải Phóng & Thống Nhất</span></span>
+          <span class="text-white font-bold text-lg font-serif tracking-tight leading-tight sm:hidden">Kỷ Niệm 50
+            Năm</span>
+        </div>
+      </div>
+      <button id="menuButton"
+        class="lg:hidden text-white hover:text-vietnam-yellow text-2xl transition-colors duration-300 relative z-10 p-1">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul id="navMenu" class="hidden lg:flex space-x-6 text-base font-medium items-center">
+        <li><a href="#hero"
+            class="text-white hover:text-vietnam-yellow transition-colors py-1 px-2 border-b-2 border-transparent hover:border-vietnam-yellow">Trang
+            Chủ</a></li>
+        <li><a href="#gioi-thieu"
+            class="text-white hover:text-vietnam-yellow transition-colors py-1 px-2 border-b-2 border-transparent hover:border-vietnam-yellow">Giới
+            Thiệu</a></li>
+        <li><a href="#gallery-3d"
+            class="text-white hover:text-vietnam-yellow transition-colors py-1 px-2 border-b-2 border-transparent hover:border-vietnam-yellow">
+            Hình Ảnh</a></li>
+        <li><a href="#dong-thoi-gian"
+            class="text-white hover:text-vietnam-yellow transition-colors py-1 px-2 border-b-2 border-transparent hover:border-vietnam-yellow">Dòng
+            Thời Gian</a></li>
+        <li><a href="#loi-ket"
+            class="text-white hover:text-vietnam-yellow transition-colors py-1 px-2 border-b-2 border-transparent hover:border-vietnam-yellow">Lời
+            Kết</a></li>
+        <li class="ml-2">
+          <div class="w-px h-8 bg-vietnam-yellow bg-opacity-30"></div>
+        </li>
+        <li>
+          <a href="#dong-thoi-gian"
+            class="bg-vietnam-yellow hover:bg-opacity-90 text-vietnam-dark-red font-bold rounded-md py-1.5 px-3 transition-all duration-300 shadow-md hover:shadow-lg text-sm uppercase tracking-wider flex items-center">
+            <i class="fas fa-clock mr-2"></i> 30/04/2025
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu"
+    class="fixed top-16 left-0 w-full bg-white shadow-lg z-40 hidden transform transition-transform duration-300 py-4">
+    <ul class="flex flex-col space-y-4 px-6">
+      <li><a href="#hero"
+          class="py-2 text-white hover:text-vietnam-yellow transition-colors nav-link-mobile flex items-center"><i
+            class="fas fa-home w-6 mr-2"></i> Trang Chủ</a></li>
+      <li><a href="#gioi-thieu"
+          class="py-2 text-white hover:text-vietnam-yellow transition-colors nav-link-mobile flex items-center"><i
+            class="fas fa-info-circle w-6 mr-2"></i> Giới Thiệu</a></li>
+      <li><a href="#gallery-3d"
+          class="py-2 text-white hover:text-vietnam-yellow transition-colors nav-link-mobile flex items-center"><i
+            class="fas fa-images w-6 mr-2"></i> Hình ảnh</a></li>
+      <li><a href="#dong-thoi-gian"
+          class="py-2 text-white hover:text-vietnam-yellow transition-colors nav-link-mobile flex items-center"><i
+            class="fas fa-history w-6 mr-2"></i> Dòng Thời Gian</a></li>
+      <li><a href="#loi-ket"
+          class="py-2 text-white hover:text-vietnam-yellow transition-colors nav-link-mobile flex items-center"><i
+            class="fas fa-bookmark w-6 mr-2"></i> Lời Kết</a></li>
+      <li class="pt-2">
+        <div class="w-full h-px bg-vietnam-yellow bg-opacity-30 my-2"></div>
+        <a href="#dong-thoi-gian"
+          class="bg-vietnam-yellow hover:bg-opacity-90 text-vietnam-dark-red font-bold rounded-md py-2 px-4 transition-all duration-300 shadow-md hover:shadow-lg text-sm uppercase tracking-wider flex items-center justify-center">
+          <i class="fas fa-clock mr-2"></i> 30/04/2025
+        </a>
+      </li>
+    </ul>
+  </div><!-- Hero Section -->
+  <section id="hero" class="min-h-screen overflow-hidden relative">
+    <!-- Hero background layers -->
+    <div class="hero-layers absolute inset-0 w-full h-full">
+      <div class="hero-bg absolute inset-0 bg-gradient-to-br from-vietnam-red to-vietnam-dark-red opacity-90"></div>
+      <div class="historical-image absolute inset-0 bg-cover bg-center opacity-90 mix-blend-soft-light"
+        style="background-image: url('images/xe-tang-dinh-doc-lap.jpg');"></div>
+      <div class="hero-grid absolute inset-0" aria-hidden="true"></div>
+      <div class="hero-stars absolute inset-0"></div>
+      <div class="hero-flag-overlay absolute inset-0"></div>
+      <div class="hero-historical-dots absolute inset-0 opacity-30"></div>
+    </div>
+
+    <!-- Flying elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="flying-element star-1"></div>
+      <div class="flying-element star-2"></div>
+      <div class="flying-element circle-1"></div>
+      <div class="flying-element circle-2"></div>
+      <div class="flying-element light-beam"></div>
+      <div class="flying-element flag-ribbon"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center h-full pt-16">
+      <!-- Large animated text -->
+      <div class="hero-text-container text-center mb-8">
+        <div class="overflow-hidden mb-2">
+          <h1 class="hero-title text-white text-4xl md:text-6xl lg:text-8xl font-bold font-serif tracking-tight"
+            id="hero-main-title">
+            <span class="inline-block chars-container">Kỷ Niệm 50 Năm</span>
+          </h1>
+        </div>
+
+        <div class="overflow-hidden mb-4">
+          <h2 class="hero-subtitle text-white text-2xl md:text-4xl font-semibold font-serif tracking-tight">
+            <span class="inline-block chars-container">Ngày Giải Phóng Miền Nam</span>
+          </h2>
+        </div>
+
+        <div class="overflow-hidden">
+          <h2 class="hero-subtitle text-white text-2xl md:text-4xl font-semibold font-serif tracking-tight mb-6">
+            <span class="inline-block chars-container">Thống Nhất Đất Nước</span>
+          </h2>
+        </div>
+
+        <div
+          class="anniversary-date text-white text-xl md:text-2xl flex items-center justify-center space-x-4 opacity-0">
+          <div class="date-box bg-vietnam-dark-red bg-opacity-70 px-4 py-2 rounded-lg">
+            <span class="date-start">30/04/1975</span>
+          </div>
+          <div class="w-8 h-px bg-white"></div>
+          <div class="date-box bg-vietnam-dark-red bg-opacity-70 px-4 py-2 rounded-lg">
+            <span class="date-end">30/04/2025</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation container with 3D flag effect -->
+      <div id="animation-container" class="perspective-container w-full max-w-xl gsap-reveal mb-12 opacity-0">
+        <div class="relative transform-3d shadow-2xl rounded-lg overflow-hidden">
+          <div class="flag-container aspect-video w-full"></div>
+          <div class="quote-layer bg-black bg-opacity-60 p-6 md:p-8">
+            <p class="text-xl text-center text-white italic">"Không có gì quý hơn độc lập tự do"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button with animated hover effect -->
+      <div class="flex flex-col items-center space-y-10">
+
+        <br />
+        <br />
+
+        <div class="scroll-indicator opacity-0">
+          <a href="#gioi-thieu" class="text-white flex flex-col items-center">
+            <span class="text-sm mb-2">CUỘN XUỐNG</span>
+            <div class="chevron-container">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giới Thiệu Section -->
+  <section id="gioi-thieu" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center mx-auto gsap-reveal">Giới Thiệu Sự Kiện</h2>
+      <div class="max-w-3xl mx-auto mt-8">
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 gsap-reveal-left">
+          <!-- **NỘI DUNG CẦN THAY THẾ:** -->
+          Chào mừng bạn đến với trang web kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước (30/04/1975 -
+          30/04/2025). Sự kiện lịch sử trọng đại này không chỉ là mốc son chói lọi trong lịch sử dân tộc Việt Nam mà còn
+          là biểu tượng của khát vọng hòa bình, độc lập và thống nhất non sông.
+        </p>
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 gsap-reveal-right">
+          <!-- **NỘI DUNG CẦN THAY THẾ:** -->
+          Trang web này được xây dựng nhằm ôn lại những trang sử hào hùng, tri ân các thế hệ cha anh đã hy sinh xương
+          máu vì độc lập, tự do của Tổ quốc, đồng thời giáo dục truyền thống yêu nước cho thế hệ trẻ. Hãy cùng chúng tôi
+          khám phá hành trình lịch sử đầy tự hào này.
+        </p>
+        <div class="mt-10 text-center gsap-reveal">
+          <img src="images/xe-tang-dinh-doc-lap.jpg" alt="Hình ảnh biểu tượng sự kiện 30/4"
+            class="rounded-lg shadow-xl mx-auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Gallery 3D Section -->
+  <section id="gallery-3d" class="py-16 md:py-24 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center mx-auto text-white gsap-reveal">Những Khoảnh Khắc Hào Hùng</h2>
+      <h3 class="text-center text-vietnam-yellow text-lg md:text-xl font-semibold mb-4 gsap-reveal">Diễu Binh Kỷ Niệm 50
+        Năm Giải Phóng Miền Nam, Thống Nhất Đất Nước</h3>
+      <p class="text-center text-gray-300 max-w-2xl mx-auto mb-10 gsap-reveal-left">
+      </p>
+
+      <div class="gallery-3d-stage">
+        <div class="gallery-3d-container">
+          <div class="gallery-3d-ring">
+            <div class="gallery-3d-img" data-id="1"></div>
+            <div class="gallery-3d-img" data-id="2"></div>
+            <div class="gallery-3d-img" data-id="3"></div>
+            <div class="gallery-3d-img" data-id="4"></div>
+            <div class="gallery-3d-img" data-id="5"></div>
+            <div class="gallery-3d-img" data-id="6"></div>
+            <div class="gallery-3d-img" data-id="7"></div>
+            <div class="gallery-3d-img" data-id="8"></div>
+            <div class="gallery-3d-img" data-id="9"></div>
+            <div class="gallery-3d-img" data-id="10"></div>
+            <div class="gallery-3d-img" data-id="11"></div>
+            <div class="gallery-3d-img" data-id="12"></div>
+            <div class="gallery-3d-img" data-id="13"></div>
+            <div class="gallery-3d-img" data-id="14"></div>
+            <div class="gallery-3d-img" data-id="15"></div>
+            <div class="gallery-3d-img" data-id="16"></div>
+            <div class="gallery-3d-img" data-id="17"></div>
+            <div class="gallery-3d-img" data-id="18"></div>
+            <div class="gallery-3d-img" data-id="19"></div>
+            <div class="gallery-3d-img" data-id="20"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <div class="text-center"></div>
+        <p class="text-sm text-gray-400 mt-2"><i class="fas fa-arrows-left-right"></i> Kéo ngang xem thêm ảnh</p>
+        <p class="text-gray-300 italic gsap-reveal-right">Bộ sưu tập ảnh từ nhiếp ảnh gia tự do Nguyễn Khánh Vũ Khoa -
+          Giữa Trời Vinh Quang</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Dòng Thời Gian Section -->
+  <section id="dong-thoi-gian" class="py-16 md:py-24 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center mx-auto gsap-reveal">Dòng Thời Gian Lịch Sử</h2>
+      <div class="max-w-4xl mx-auto mt-12">
+        <!-- Cột Mốc 1: Hiệp định Paris -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-file-signature"></i></span> <!-- Icon cho hiệp định -->
+          </div>
+          <div class="timeline-date">27/01/1973</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Hiệp định Paris về Chấm dứt Chiến tranh, Lập
+            lại Hòa bình ở Việt Nam</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Hiệp định được ký kết giữa Việt Nam Dân chủ Cộng hòa, Chính phủ Cách mạng Lâm thời Cộng hòa miền Nam
+              Việt
+              Nam, Hoa Kỳ và Việt Nam Cộng hòa vào ngày 27 tháng 1 năm 1973. Các điều khoản chính bao gồm: Hoa Kỳ cam
+              kết chấm dứt mọi hoạt động quân sự chống phá miền Bắc Việt Nam; Hoa Kỳ và các nước đồng minh rút toàn bộ
+              quân đội khỏi miền Nam Việt Nam trong vòng 60 ngày; Hoa Kỳ dỡ bỏ các căn cứ quân sự; Hoa Kỳ cam kết
+              không
+              tiếp tục dính líu quân sự hoặc can thiệp vào công việc nội bộ của miền Nam Việt Nam. Hai bên miền Nam
+              Việt
+              Nam thực hiện ngừng bắn và đạt được hòa giải dân tộc thông qua các biện pháp hòa bình; quyền tự quyết
+              của
+              nhân dân miền Nam Việt Nam được tôn trọng, dẫn đến tổng tuyển cử thực sự tự do và dân chủ. Thống nhất và
+              toàn vẹn lãnh thổ của Việt Nam như được công nhận bởi Hiệp định Genève năm 1954 được tôn trọng. Việc
+              trao
+              đổi tù binh cũng được quy định.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Hiệp định này bắt buộc quân đội Mỹ phải rút khỏi Việt Nam, một mục tiêu quan trọng của cách mạng Việt
+              Nam.
+              Đây được coi là một thắng lợi lớn của ngoại giao Việt Nam và là kết quả của nhiều năm đấu tranh trên các
+              mặt trận quân sự, chính trị và ngoại giao. Tuy nhiên, Hiệp định để ngỏ tương lai chính trị của miền Nam
+              Việt Nam, với hai chính quyền, hai quân đội và hai vùng kiểm soát, tạo tiền đề cho xung đột tiếp diễn.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Bằng việc đảm bảo Mỹ rút quân, miền Bắc đã loại bỏ đối thủ đáng gờm nhất khỏi chiến trường. Sự công nhận
+              Chính phủ Cách mạng Lâm thời và các vùng giải phóng do họ kiểm soát đã mang lại cho họ tính hợp pháp cao
+              hơn. Tuy nhiên, chế độ của Tổng thống Thiệu không có ý định thực sự thực hiện các điều khoản chính trị.
+              Sự
+              ngoan cố này, cùng với mục tiêu thống nhất của miền Bắc, có nghĩa là "hòa bình" của Hiệp định rất mong
+              manh.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Cam kết của Hoa Kỳ "góp phần vào việc hàn gắn vết thương chiến tranh ở Việt Nam và Đông Dương" đã không
+              được thực hiện đầy đủ. Việc Hoa Kỳ sau đó không cung cấp viện trợ tái thiết cho miền Bắc và giảm viện
+              trợ
+              cho miền Nam đã gây ra những hậu quả sâu sắc, làm suy yếu khả năng phục hồi của miền Nam và có thể đã
+              củng
+              cố quyết tâm của miền Bắc để đạt được một chiến thắng quân sự quyết định.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <img loading="lazy" src="images/lekyket-hd-paris.jpg.jpg" alt="Lễ ký kết Hiệp định Paris"
+                class="rounded-lg shadow-sm w-full h-64 object-cover mb-2">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh lễ ký kết Hiệp định Paris.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <img loading="lazy" src="images/bo-truong-nguyen-thi-binh.jpg" alt="Bộ trưởng Nguyễn Thị Bình"
+                class="rounded-lg shadow-sm w-full h-64 object-cover mb-2">
+              <p class="text-sm text-gray-600 mt-1 text-center">Bộ trưởng Nguyễn Thị Bình.</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Trích dẫn điều khoản quan trọng (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Hoa Kỳ và các nước khác tôn trọng độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ của nước Việt Nam
+              như
+              Hiệp định Giơnevơ năm 1954 về Việt Nam đã công nhận."
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 2: Lính Mỹ Rút Quân -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-plane-departure"></i></span> <!-- Icon cho rút quân -->
+          </div>
+          <div class="timeline-date">29/03/1973</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Những Đơn Vị Lính Mỹ Cuối Cùng Rút Khỏi Miền
+            Nam Việt Nam</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Những người lính chiến đấu cuối cùng của Mỹ rời miền Nam Việt Nam vào ngày 29 tháng 3 năm 1973, thực
+              hiện
+              một điều khoản quan trọng của Hiệp định Paris. Điều này đánh dấu sự kết thúc chính thức của hơn một thập
+              kỷ can dự quân sự trực tiếp của Mỹ.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Đây là một thời khắc mang tính bước ngoặt. Đối với miền Bắc, đó là sự ra đi của đối thủ chính. Đối với
+              miền Nam Việt Nam, điều đó có nghĩa là phải đối mặt với lực lượng miền Bắc mà không có sự hỗ trợ chiến
+              đấu
+              trực tiếp của Mỹ, chỉ dựa vào quân đội của mình (Quân lực Việt Nam Cộng hòa - QLVNCH) và viện trợ tiếp
+              tục
+              của Mỹ, vốn được chứng minh là ngày càng giảm sút. Chính sách "Việt Nam hóa chiến tranh" lúc này đã được
+              thử thách hoàn toàn.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Việc Mỹ rút quân đã tạo ra một khoảng trống quân sự về hỏa lực, hỗ trợ không quân, hậu cần và tình báo
+              mà
+              QLVNCH chưa được chuẩn bị để tự mình lấp đầy. Việc loại bỏ đột ngột hệ thống hỗ trợ này, đặc biệt là
+              không
+              quân Mỹ, đã khiến QLVNCH dễ bị tổn thương. Họ giờ đây phải tự mình bảo vệ những vùng lãnh thổ rộng lớn
+              và
+              quản lý các chuỗi hậu cần phức tạp, thường với trang thiết bị khó bảo trì và phụ tùng thay thế ngày càng
+              cạn kiệt do cắt giảm viện trợ. Sự dàn trải quá mức và yếu kém cố hữu này đã bị miền Bắc khai thác một
+              cách
+              có hệ thống trong các chiến dịch tiếp theo.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <img loading="lazy" src="images/linh-my-rut-khoi-VN.jpg" alt="Lính Mỹ lên máy bay"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh lính Mỹ lên máy bay rời Việt Nam.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <img loading="lazy" src="images/le-ha-co-my.jpg" alt="Lễ hạ cờ Mỹ tại MACV"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2">
+              <p class="text-sm text-gray-600 mt-1 text-center">Lễ hạ cờ Mỹ tại Bộ Chỉ huy Viện trợ Quân sự Mỹ tại
+                Việt
+                Nam (MACV).</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Thống kê (ví dụ):</h5>
+            <ul class="list-disc list-inside text-gray-700 text-sm md:text-base">
+              <li>Số lượng quân Mỹ cao nhất tại Việt Nam: ~543,000 (1968-1969)</li>
+              <li>Ngày rút quân cuối cùng: 29/03/1973</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 3: Nghị quyết 21 -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-landmark"></i></span>
+            <!-- Icon cho nghị quyết, hội nghị -->
+          </div>
+          <div class="timeline-date">Tháng 7-10/1973</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Hội nghị lần thứ 21 Ban Chấp hành Trung ương
+            Đảng Lao động Việt Nam (Nghị quyết 21)</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Hội nghị diễn ra vào tháng 7 năm 1973, với Nghị quyết chính thức được ban hành vào tháng 10 năm 1973.
+              Hội
+              nghị đánh giá tình hình sau Hiệp định Paris, nhận định Mỹ và VNCH đang vi phạm Hiệp định. Khẳng định
+              nhiệm
+              vụ cơ bản của cách mạng miền Nam là hoàn thành cách mạng dân tộc dân chủ nhân dân, và nêu rõ "con đường
+              của cách mạng miền Nam là con đường bạo lực cách mạng". Kêu gọi tăng cường lực lượng vũ trang và sẵn
+              sàng
+              mở các cuộc tấn công quy mô lớn.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Đây là một chỉ thị chiến lược then chốt, báo hiệu miền Bắc chuẩn bị tiếp tục hành động quân sự quy mô
+              lớn
+              để đạt được thống nhất nếu đấu tranh chính trị không đủ. Nghị quyết này đã bật đèn xanh cho việc chuẩn
+              bị
+              cuộc Tổng tiến công cuối cùng. Nó tái khẳng định mục tiêu chiến lược lâu dài là thống nhất đất nước bằng
+              mọi biện pháp cần thiết, coi Hiệp định Paris là một giai đoạn chiến thuật. Kế hoạch quân sự chi tiết sau
+              đó là hệ quả trực tiếp của nghị quyết này, khởi động các công tác chuẩn bị cho cuộc tấn công năm 1975.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/hoi-nghi-21.jpg" alt="Hội nghị Trung ương Đảng"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh tư liệu về một kỳ họp Trung ương Đảng.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/trich-doan-nd-21.png" alt="Văn bản Nghị quyết 21"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Trích đoạn Nghị quyết 21.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Quyết định chính (Minh họa):</h5>
+            <ul class="list-none space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-bullseye text-vietnam-red mr-3 mt-1"></i>
+                <span class="text-gray-700 text-sm md:text-base">Khẳng định tiếp tục cách mạng dân tộc dân chủ nhân
+                  dân
+                  ở miền Nam.</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-fist-raised text-vietnam-red mr-3 mt-1"></i>
+                <span class="text-gray-700 text-sm md:text-base">Xác định con đường cách mạng miền Nam là bạo lực cách
+                  mạng.</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-users-cog text-vietnam-red mr-3 mt-1"></i>
+                <span class="text-gray-700 text-sm md:text-base">Chuẩn bị lực lượng cho các cuộc tấn công quy mô
+                  lớn.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 4: Chiến thắng Đường 14 - Phước Long -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-road-barrier"></i></span>
+            <!-- Icon cho chiến dịch, trận đánh -->
+          </div>
+          <div class="timeline-date">13/12/1974 – 06/01/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Chiến thắng Đường 14 - Phước Long</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Quân Giải phóng miền Nam Việt Nam mở chiến dịch đánh chiếm tỉnh Phước Long và thị xã Phước Bình, nằm
+              trên
+              trục Đường 14, một tuyến đường chiến lược. Đây là một đòn "trinh sát chiến lược" nhằm thử phản ứng của
+              quân đội VNCH và khả năng can thiệp trở lại của Mỹ.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến chính:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li>Quân Giải phóng tấn công các chi khu quân sự, quận lỵ then chốt như Đồng Xoài, Phước Bình, Bù Đăng,
+                Bù
+                Đốp.</li>
+              <li>Giao tranh ác liệt diễn ra, đặc biệt tại thị xã Phước Bình.</li>
+              <li>Đến ngày 06/01/1975, toàn tỉnh Phước Long hoàn toàn được giải phóng.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Chiến thắng Phước Long có ý nghĩa cực kỳ quan trọng. Nó cho thấy sự suy yếu rõ rệt của quân đội VNCH sau
+              khi Mỹ rút quân và cắt giảm viện trợ. Quan trọng hơn, Mỹ đã không có bất kỳ hành động can thiệp quân sự
+              nào để cứu Phước Long. Điều này củng cố niềm tin cho Bộ Chính trị Đảng Lao động Việt Nam rằng Mỹ sẽ
+              không
+              quay trở lại và tạo điều kiện thuận lợi để giải phóng hoàn toàn miền Nam. Chiến thắng này là một "phép
+              thử" thành công, mở đường cho cuộc Tổng tiến công và nổi dậy mùa Xuân năm 1975.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Sự thất thủ của Phước Long gây chấn động lớn cho chính quyền Sài Gòn, làm suy sụp tinh thần chiến đấu
+              của
+              binh lính VNCH. Ngược lại, nó cổ vũ mạnh mẽ tinh thần của Quân Giải phóng và nhân dân vùng giải phóng.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/quan_giai_phong_14_phuoc_long.jpg" alt="Quân Giải phóng tại Phước Long"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh Quân Giải phóng tiến vào Phước Long.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/ban-do-chien-dich-phuoc-long.jpg" alt="Bản đồ chiến dịch Phước Long"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Bản đồ khu vực chiến dịch Phước Long (Placeholder).
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Phản ứng quốc tế (Minh họa):</h5>
+            <p class="text-gray-700 text-sm md:text-base">
+              Việc Mỹ không can thiệp vào Phước Long được coi là dấu hiệu cho thấy Washington đã "buông xuôi" với tình
+              hình Việt Nam, tạo điều kiện cho các bước đi tiếp theo của Hà Nội.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 5: Tổng Tiến Công Mùa Xuân 1975 -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-bolt"></i></span> <!-- Icon cho tổng tiến công -->
+          </div>
+          <div class="timeline-date">Mùa Xuân 1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Cuộc Tổng Tiến Công và Nổi Dậy Mùa Xuân
+            1975:
+            Những Thắng Lợi Quyết Định</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Cuộc Tổng tiến công và nổi dậy mùa Xuân 1975 là một chuỗi các chiến dịch quân sự nối tiếp nhau với tốc
+              độ
+              chóng mặt, dẫn đến sự sụp đổ hoàn toàn của chính quyền Việt Nam Cộng hòa và sự thống nhất đất nước.
+            </p>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              Bảng niên biểu này cung cấp một cái nhìn tổng quan, ngắn gọn về chuỗi các chiến thắng nhanh chóng và có
+              tính chất dây chuyền trong cuộc Tổng tiến công Mùa Xuân 1975. Nó cho phép người xem website nhanh chóng
+              nắm bắt được dòng thời gian và đà leo thang của các sự kiện dẫn đến ngày giải phóng cuối cùng.
+            </p>
+
+            <div class="overflow-x-auto rounded-lg shadow">
+              <table class="min-w-full bg-white border border-gray-200">
+                <thead class="bg-vietnam-red text-white">
+                  <tr>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Sự kiện</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Ngày bắt đầu</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Ngày kết thúc</th>
+                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Ý nghĩa tóm lược</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-700">
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-4">Chiến dịch Tây Nguyên</td>
+                    <td class="py-3 px-4">04/03/1975</td>
+                    <td class="py-3 px-4">24/03/1975</td>
+                    <td class="py-3 px-4 text-sm">Đột phá chiến lược, khởi đầu sự sụp đổ của Quân đoàn II VNCH, mở
+                      đường
+                      tiến vào Sài Gòn.</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-4">Trận Buôn Ma Thuột</td>
+                    <td class="py-3 px-4">10/03/1975</td>
+                    <td class="py-3 px-4">11/03/1975</td>
+                    <td class="py-3 px-4 text-sm">Chiến thắng then chốt ở Tây Nguyên, kích hoạt cuộc rút quân của VNCH
+                      khỏi Tây Nguyên.</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-4">Chiến dịch Huế - Đà Nẵng</td>
+                    <td class="py-3 px-4">21/03/1975</td>
+                    <td class="py-3 px-4">29/03/1975</td>
+                    <td class="py-3 px-4 text-sm">Tiêu diệt Quân đoàn I VNCH, giải phóng các thành phố lớn, sụp đổ
+                      quyền
+                      kiểm soát của VNCH ở miền Trung Việt Nam.</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-4">Giải phóng Huế</td>
+                    <td class="py-3 px-4">26/03/1975</td>
+                    <td class="py-3 px-4">26/03/1975</td>
+                    <td class="py-3 px-4 text-sm">Chiếm được cố đô, một tổn thất lớn mang tính biểu tượng và chiến
+                      lược
+                      cho VNCH.</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-4">Giải phóng Đà Nẵng</td>
+                    <td class="py-3 px-4">29/03/1975</td>
+                    <td class="py-3 px-4">29/03/1975</td>
+                    <td class="py-3 px-4 text-sm">Sự sụp đổ của thành phố lớn thứ hai và căn cứ quân sự quan trọng của
+                      miền Nam Việt Nam.</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-4">Tổng thống Nguyễn Văn Thiệu từ chức</td>
+                    <td class="py-3 px-4">21/04/1975</td>
+                    <td class="py-3 px-4">21/04/1975</td>
+                    <td class="py-3 px-4 text-sm">Sự tan rã chính trị của chế độ Sài Gòn.</td>
+                  </tr>
+                  <tr class="border-b hover:bg-gray-50">
+                    <td class="py-3 px-4">Chiến dịch Hồ Chí Minh</td>
+                    <td class="py-3 px-4">26/04/1975</td>
+                    <td class="py-3 px-4">30/04/1975</td>
+                    <td class="py-3 px-4 text-sm">Cuộc tấn công cuối cùng, năm mũi tiến công dẫn đến sự sụp đổ của Sài
+                      Gòn.</td>
+                  </tr>
+                  <tr class="hover:bg-gray-50">
+                    <td class="py-3 px-4">Giải phóng Sài Gòn & Kết thúc chiến tranh</td>
+                    <td class="py-3 px-4">30/04/1975</td>
+                    <td class="py-3 px-4">30/04/1975</td>
+                    <td class="py-3 px-4 text-sm">Chiếm Dinh Độc Lập, VNCH đầu hàng, kết thúc Chiến tranh Việt Nam,
+                      thống nhất đất nước.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 5.1: Chiến dịch Tây Nguyên -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-mountain-sun"></i></span>
+            <!-- Icon cho chiến dịch Tây Nguyên -->
+          </div>
+          <div class="timeline-date">04/03 – 24/03/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Chiến dịch Tây Nguyên (Chiến dịch 275)</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt chiến dịch:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Chiến dịch Tây Nguyên, mang mật danh "Chiến dịch 275", là đòn tấn công chiến lược mở màn cho Cuộc Tổng
+              tiến công và nổi dậy mùa Xuân 1975. Mục tiêu chủ yếu là thị xã Buôn Ma Thuột, một vị trí then chốt ở Nam
+              Tây Nguyên. Chiến dịch này được coi là một trong những trận đánh quan trọng nhất, tạo ra bước ngoặt
+              quyết
+              định của toàn bộ cuộc chiến.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến chính:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li><strong>Giai đoạn 1 (04/03 - 09/03):</strong> Quân Giải phóng thực hiện các hoạt động nghi binh,
+                chia
+                cắt giao thông trên các Đường 19, 21, cô lập Tây Nguyên với đồng bằng ven biển. Các đơn vị chủ lực bí
+                mật cơ động áp sát Buôn Ma Thuột.</li>
+              <li><strong>Giai đoạn 2 (10/03 - 11/03):</strong> Trận then chốt Buôn Ma Thuột. Sáng sớm 10/03, Quân
+                Giải
+                phóng đồng loạt tấn công vào thị xã. Sau hơn một ngày chiến đấu quyết liệt, đến chiều 11/03, Quân Giải
+                phóng hoàn toàn làm chủ Buôn Ma Thuột.</li>
+              <li><strong>Giai đoạn 3 (12/03 - 24/03):</strong> Phát triển chiến đấu, truy kích địch rút chạy. Quân
+                VNCH, sau khi mất Buôn Ma Thuột và bị cắt đường rút lui, buộc phải thực hiện cuộc rút quân hỗn loạn
+                khỏi
+                Pleiku và Kon Tum theo Đường số 7 (nay là Đường 25). Cuộc rút quân này trở thành một thảm họa, phần
+                lớn
+                lực lượng của Quân đoàn II VNCH bị tiêu diệt hoặc tan rã trên đường rút chạy. Đến ngày 24/03, toàn bộ
+                Tây Nguyên được giải phóng.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa chiến lược:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Chiến thắng Tây Nguyên có ý nghĩa vô cùng to lớn:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li>Đánh sập một mảng lớn trong hệ thống phòng ngự chiến lược của VNCH, tiêu diệt và làm tan rã phần lớn
+                Quân đoàn II.</li>
+              <li>Giải phóng một địa bàn chiến lược rộng lớn, giàu tiềm năng, tạo bàn đạp vững chắc để phát triển tấn
+                công xuống các tỉnh ven biển miền Trung và hướng vào Sài Gòn.</li>
+              <li>Gây cú sốc tâm lý nặng nề cho quân đội và chính quyền Sài Gòn, làm lung lay ý chí chiến đấu của họ.
+              </li>
+              <li>Chứng minh sự đúng đắn của Bộ Chính trị và Quân ủy Trung ương trong việc chọn Tây Nguyên làm hướng
+                tấn
+                công chủ yếu, và Buôn Ma Thuột làm mục tiêu then chốt.</li>
+              <li>Tạo ra thời cơ chiến lược mới, cực kỳ thuận lợi để Bộ Chính trị hạ quyết tâm giải phóng hoàn toàn
+                miền
+                Nam ngay trong năm 1975.</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed">
+              Thắng lợi của Chiến dịch Tây Nguyên đã mở đầu cho sự sụp đổ dây chuyền của quân đội VNCH, đẩy nhanh quá
+              trình tiến tới giải phóng hoàn toàn miền Nam, thống nhất đất nước.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/quan-giai-phong-chien-dich-tay-nguyen1.jpg"
+                alt="Quân giải phóng trong Chiến dịch Tây Nguyên."
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh Quân Giải phóng trong Chiến dịch Tây Nguyên.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/luoc-do-chien-dich-tay-nguyen.jpg" alt="Bản đồ Chiến dịch Tây Nguyên"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Lược đồ Chiến dịch Tây Nguyên.</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Nhận định (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Chiến thắng Tây Nguyên là một đòn điểm huyệt chính xác, làm rung chuyển toàn bộ hệ thống phòng ngự của
+              địch, mở ra thời cơ chiến lược giải phóng hoàn toàn miền Nam." (Trích nhận định lịch sử - Placeholder)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 5.2: Trận Đánh Buôn Ma Thuột -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-city"></i></span>
+            <!-- Icon cho trận đánh Buôn Ma Thuột -->
+          </div>
+          <div class="timeline-date">10/03 – 11/03/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Trận Đánh Buôn Ma Thuột</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Mở màn ngày 10 tháng 3 năm 1975, với cuộc tấn công đa hướng của lực lượng Quân Giải phóng, bao gồm Sư
+              đoàn
+              316, Trung đoàn 95B và Trung đoàn đặc công 198. Bất chấp sự phòng thủ của QLVNCH, thị xã phần lớn đã bị
+              chiếm trong vòng hai ngày, đến ngày 11 tháng 3. Các mục tiêu quan trọng như Sở chỉ huy Sư đoàn 23 QLVNCH
+              và Ngã Sáu đã bị chiếm. Lực lượng QLVNCH bị bất ngờ, tin rằng cuộc tấn công chính sẽ diễn ra ở nơi khác
+              (Pleiku). Quân tiếp viện không được gửi đến kịp thời hoặc với lực lượng đủ mạnh.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa then chốt:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Đây là "trận đánh then chốt chủ yếu" của chiến dịch Tây Nguyên. Việc chiếm được Buôn Ma Thuột đã kích
+              hoạt
+              quyết định của Thiệu từ bỏ Cao nguyên, dẫn đến sự sụp đổ của Quân đoàn II QLVNCH. Đó là một đòn giáng
+              mạnh
+              về tâm lý và chiến lược đối với VNCH.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Sự thất thủ của Buôn Ma Thuột là sự kiện cụ thể đóng vai trò chất xúc tác cho toàn bộ sự sụp đổ của mặt
+              trận phía bắc của VNCH. Đó không chỉ là một trận thua; đó là thời điểm mà các giả định chiến lược của
+              VNCH
+              bị phá vỡ, dẫn đến việc ra quyết định hoảng loạn và sai lầm ở cấp cao nhất. Bộ chỉ huy VNCH đã đánh giá
+              thấp mối đe dọa đối với Buôn Ma Thuột. Sự thất thủ nhanh chóng của nó đã phơi bày một lỗ hổng nghiêm
+              trọng. Quyết định sau đó của Tổng thống Thiệu từ bỏ toàn bộ Tây Nguyên là một hệ quả trực tiếp, gần như
+              ngay lập tức, của việc mất Buôn Ma Thuột. Quyết định này, thay vì ổn định mặt trận, lại dẫn đến sự hủy
+              diệt của cả một quân đoàn trong cuộc rút lui, một tổn thất lớn hơn nhiều so với chính Buôn Ma Thuột.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/quan-giai-phong-chien-dich-tay-nguyen.jpg"
+                alt="Quân giải phóng tiến vào đánh chiếm sân bay Hòa Bình ở thị xã Buôn Ma Thuột."
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">dq10
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh Quân Giải phóng tại Buôn Ma Thuột
+                (Placeholder).</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/so-do-tran-buon-ma-thuoc.jpg" alt="Sơ đồ trận đánh Buôn Ma Thuột"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Sơ đồ trận đánh Buôn Ma Thuột.</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Lời kể nhân chứng (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Tiếng súng đã rất gần. Chúng tôi biết Buôn Ma Thuột không còn giữ được nữa. Đó là một cú sốc lớn, mở
+              đầu
+              cho những ngày tháng đen tối nhất." (Trích lời kể hư cấu của một người dân - Placeholder)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 6: Chiến dịch Huế - Đà Nẵng -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-water"></i></span>
+            <!-- Icon cho Huế - Đà Nẵng (sông, biển) -->
+          </div>
+          <div class="timeline-date">21/03 – 29/03/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Chiến dịch Huế - Đà Nẵng</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt chiến dịch:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Sau thắng lợi ở Tây Nguyên, Bộ Chính trị và Quân ủy Trung ương quyết định mở Chiến dịch Huế - Đà Nẵng
+              nhằm
+              tiêu diệt Quân đoàn I VNCH, giải phóng các tỉnh duyên hải miền Trung. Chiến dịch diễn ra với tốc độ thần
+              tốc, tận dụng sự hoang mang, tan rã của địch sau thất bại ở Tây Nguyên và cuộc rút lui chiến lược sai
+              lầm
+              của Tổng thống Thiệu.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến chính:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li><strong>Hướng Huế (21/03 - 26/03):</strong> Quân Giải phóng (chủ lực là Quân đoàn 2) từ nhiều hướng
+                tấn công vào Huế. Ngày 23/03, cắt đứt Đường số 1 đoạn Huế - Đà Nẵng. Ngày 25/03, các đơn vị VNCH ở Huế
+                bắt đầu tan rã, rút chạy. Sáng 26/03, Quân Giải phóng hoàn toàn làm chủ thành phố Huế và tỉnh Thừa
+                Thiên.</li>
+              <li><strong>Hướng Đà Nẵng (26/03 - 29/03):</strong> Sau khi Huế thất thủ, Đà Nẵng, căn cứ quân sự liên
+                hợp
+                lớn nhất miền Nam, rơi vào tình thế bị cô lập và hỗn loạn. Hàng chục vạn quân VNCH và dân thường tìm
+                cách di tản. Quân Giải phóng nhanh chóng bao vây, tấn công từ nhiều hướng. Sáng 29/03, các đơn vị Quân
+                Giải phóng tiến vào giải phóng Đà Nẵng mà không gặp nhiều kháng cự đáng kể.</li>
+              <li>Các tỉnh Quảng Trị, Quảng Ngãi, Bình Định, Phú Yên, Khánh Hòa cũng lần lượt được giải phóng trong
+                khoảng thời gian này.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa chiến lược:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Chiến thắng Huế - Đà Nẵng có ý nghĩa cực kỳ to lớn:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li>Tiêu diệt và làm tan rã hoàn toàn Quân đoàn I và Quân khu I VNCH, một trong những lực lượng mạnh
+                nhất
+                của địch.</li>
+              <li>Giải phóng một vùng lãnh thổ rộng lớn bao gồm nhiều thành phố quan trọng và căn cứ quân sự chiến
+                lược
+                ở duyên hải miền Trung.</li>
+              <li>Phá vỡ kế hoạch co cụm chiến lược của địch, làm thay đổi hoàn toàn cục diện chiến trường, tạo ra
+                thời
+                cơ chiến lược mới, thuận lợi hơn bao giờ hết để tiến tới giải phóng Sài Gòn và toàn bộ miền Nam.</li>
+              <li>Gây suy sụp tinh thần nghiêm trọng trong hàng ngũ quân đội và chính quyền Sài Gòn, đẩy nhanh quá
+                trình
+                tan rã của chế độ VNCH.</li>
+              <li>Chứng minh khả năng tác chiến hiệp đồng binh chủng quy mô lớn, tốc độ cao của Quân Giải phóng.</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed">
+              Thắng lợi của Chiến dịch Huế - Đà Nẵng, cùng với thắng lợi ở Tây Nguyên, đã tạo nên một bước ngoặt có
+              tính
+              quyết định, đưa cuộc kháng chiến chống Mỹ cứu nước đến trước ngưỡng cửa toàn thắng.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/quan-giai-phong-chien-dich-hue-danang.jpg"
+                alt="Quân Giải phóng tiến vào Huế"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh Quân Giải phóng tiến vào Huế.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/co-giai-phong-tung-bay-danang.jpg" alt="Cờ Giải phóng tại Đà Nẵng"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Cờ Giải phóng tung bay tại Đà Nẵng.</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Đánh giá của Bộ Chính trị (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Thắng lợi ở Huế - Đà Nẵng đã tạo ra sự thay đổi nhảy vọt về cục diện chiến tranh, thời cơ chiến lược để
+              giải phóng Sài Gòn và toàn bộ miền Nam đã tới." (Trích nhận định lịch sử)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 6.1: Giải phóng Huế -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-landmark-flag"></i></span>
+            <!-- Icon cho giải phóng Huế -->
+          </div>
+          <div class="timeline-date">26/03/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Giải phóng Huế (26/03/1975)</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Nằm trong khuôn khổ Chiến dịch Huế - Đà Nẵng, việc giải phóng thành phố Huế là một mục tiêu chiến lược
+              quan trọng. Sau khi Quân Giải phóng cắt đứt Đường số 1 và các tuyến đường rút lui khác, lực lượng VNCH
+              tại
+              Huế rơi vào tình thế bị bao vây, chia cắt.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến chính:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li><strong>Ngày 23-24/03:</strong> Quân Giải phóng (chủ lực là Quân đoàn 2 và các đơn vị phối thuộc)
+                siết
+                chặt vòng vây, tấn công các vị trí phòng thủ vòng ngoài của Huế. Các trận đánh ác liệt diễn ra ở Phú
+                Lộc, Lăng Cô, cửa Thuận An.</li>
+              <li><strong>Ngày 25/03:</strong> Trước sức ép mạnh mẽ, quân VNCH tại Huế bắt đầu tan rã. Nhiều đơn vị tự
+                ý
+                rút chạy hoặc đầu hàng. Bộ Tư lệnh Quân đoàn I VNCH mất quyền kiểm soát.</li>
+              <li><strong>Sáng 26/03:</strong> Các cánh quân của Quân Giải phóng từ nhiều hướng đồng loạt tiến vào
+                trung
+                tâm thành phố Huế. Cờ Mặt trận Dân tộc Giải phóng miền Nam Việt Nam được cắm trên đỉnh Phu Văn Lâu và
+                Kỳ
+                Đài Ngọ Môn. Đến trưa cùng ngày, thành phố Huế và toàn tỉnh Thừa Thiên hoàn toàn được giải phóng.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Việc giải phóng Huế có ý nghĩa to lớn:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li>Đánh dấu sự sụp đổ của một trong những trung tâm chính trị, văn hóa, quân sự quan trọng của VNCH ở
+                miền Trung.</li>
+              <li>Cổ vũ mạnh mẽ tinh thần chiến đấu của quân và dân ta, đồng thời gây hoang mang cực độ trong hàng ngũ
+                địch.</li>
+              <li>Mở toang cánh cửa để Quân Giải phóng phát triển tấn công giải phóng Đà Nẵng và các tỉnh còn lại ở
+                duyên hải miền Trung.</li>
+              <li>Là một thắng lợi mang tính biểu tượng cao, giải phóng Cố đô Huế, nơi từng là kinh đô của triều
+                Nguyễn.
+              </li>
+            </ul>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/quan-giai-phong-tai-ky-dai-hue.jpg"
+                alt="Quân Giải phóng tiến vào Kỳ Đài Huế"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh Quân Giải phóng tại Kỳ Đài, Huế.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/cot-co-phu-van-lau-thua-thien-hue.jpg"
+                alt="Cờ Giải phóng trên Phu Văn Lâu"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Cờ Giải phóng tung bay trên Phu Văn Lâu.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Không khí ngày giải phóng (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Huế những ngày tháng Ba lịch sử, cờ đỏ sao vàng tung bay trên Kỳ Đài cổ kính, báo hiệu một trang sử mới
+              đã mở ra cho Cố đô." (Trích cảm nhận lịch sử)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 6.2: Giải phóng Đà Nẵng -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-ship"></i></span>
+            <!-- Icon cho giải phóng Đà Nẵng (cảng biển) -->
+          </div>
+          <div class="timeline-date">29/03/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Giải phóng Đà Nẵng (29/03/1975)</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Sau khi Huế thất thủ, Đà Nẵng trở thành mục tiêu tiếp theo và là then chốt trong Chiến dịch Huế - Đà
+              Nẵng.
+              Đây là căn cứ quân sự liên hợp lớn nhất của VNCH ở miền Trung, với sân bay, cảng biển và một lực lượng
+              quân sự đông đảo. Tuy nhiên, tinh thần quân địch đã suy sụp nghiêm trọng.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến chính:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li><strong>Ngày 27-28/03:</strong> Quân Giải phóng (chủ lực là Quân đoàn 2 và các đơn vị tăng cường) từ
+                các hướng Bắc, Tây Bắc, Tây Nam và Đông Nam đồng loạt áp sát, bao vây Đà Nẵng. Các đơn vị pháo binh
+                tầm
+                xa bắt đầu bắn phá các mục tiêu quan trọng trong thành phố.</li>
+              <li><strong>Đêm 28, rạng sáng 29/03:</strong> Tình hình Đà Nẵng trở nên vô cùng hỗn loạn. Hàng chục vạn
+                binh lính VNCH và dân thường tìm mọi cách thoát khỏi thành phố, chủ yếu bằng đường biển và đường
+                không,
+                gây ra cảnh tượng hỗn loạn chưa từng có. Nhiều đơn vị VNCH tan rã, mất chỉ huy.</li>
+              <li><strong>Sáng 29/03:</strong> Các cánh quân của Quân Giải phóng nhanh chóng tiến vào trung tâm thành
+                phố từ nhiều hướng. Quân đoàn 2 đánh chiếm sân bay Nước Mặn, bán đảo Sơn Trà, Tòa thị chính. Các đơn
+                vị
+                khác chiếm các mục tiêu quan trọng còn lại. Đến trưa ngày 29/03, Đà Nẵng hoàn toàn được giải phóng.
+                Cuộc
+                kháng cự của VNCH gần như không đáng kể.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Việc giải phóng Đà Nẵng là một thắng lợi có ý nghĩa chiến lược đặc biệt quan trọng:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li>Đập tan hoàn toàn cụm phòng thủ mạnh nhất của địch ở Quân khu I, tiêu diệt và làm tan rã phần lớn
+                Quân
+                đoàn I VNCH.</li>
+              <li>Giải phóng thành phố lớn thứ hai miền Nam, một trung tâm chính trị, quân sự, kinh tế, văn hóa quan
+                trọng.</li>
+              <li>Mở thông tuyến hành lang chiến lược ven biển, tạo điều kiện thuận lợi cho đại quân ta thần tốc tiến
+                về
+                giải phóng Sài Gòn.</li>
+              <li>Gây cú sốc cực lớn, làm sụp đổ hoàn toàn ý chí kháng cự của chính quyền và quân đội Sài Gòn.</li>
+              <li>Cùng với thắng lợi ở Tây Nguyên và Huế, chiến thắng Đà Nẵng đã làm thay đổi căn bản so sánh lực
+                lượng
+                và cục diện chiến trường, tạo ra thời cơ ngàn năm có một để kết thúc chiến tranh.</li>
+            </ul>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/giai-phong-da-nang-2.webp" alt="Quân Giải phóng tiến vào Đà Nẵng"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh Quân Giải phóng tiến vào Đà Nẵng.
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/canh-tuong-ngay-GP-DN.jpg" alt="Cảng Đà Nẵng ngày giải phóng"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Cảnh tượng tại cảng Đà Nẵng trong những ngày giải
+                phóng.
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Điện của Bộ Chính trị (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Giải phóng Đà Nẵng là một thắng lợi có ý nghĩa quyết định. Thời cơ chiến lược giải phóng Sài Gòn trước
+              mùa mưa đã đến!" (Trích điện chỉ đạo)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 7: Tổng thống Nguyễn Văn Thiệu Từ Chức -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-user-tie-slash"></i></span> <!-- Icon cho từ chức -->
+          </div>
+          <div class="timeline-date">21/04/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Tổng thống Nguyễn Văn Thiệu Từ Chức</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt sự kiện:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Trước sức ép quân sự ngày càng tăng từ Quân Giải phóng, sự sụp đổ liên tiếp của các mặt trận lớn (Tây
+              Nguyên, Huế, Đà Nẵng) và áp lực chính trị từ nhiều phía, bao gồm cả từ Hoa Kỳ, Tổng thống Việt Nam Cộng
+              hòa Nguyễn Văn Thiệu tuyên bố từ chức vào tối ngày 21 tháng 4 năm 1975. Trong bài phát biểu từ chức kéo
+              dài hơn 90 phút trên đài phát thanh và truyền hình Sài Gòn, ông Thiệu đã chỉ trích nặng nề Hoa Kỳ vì đã
+              không giữ lời hứa viện trợ và bỏ rơi đồng minh.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Bối cảnh và Nguyên nhân:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li><strong>Thất bại quân sự liên tiếp:</strong> Mất Phước Long, toàn bộ Quân khu I và II rơi vào tay
+                Quân
+                Giải phóng chỉ trong một thời gian ngắn đã làm lung lay tận gốc chế độ Sài Gòn.</li>
+              <li><strong>Áp lực từ Hoa Kỳ:</strong> Đại sứ Mỹ Graham Martin đã nhiều lần gợi ý ông Thiệu nên từ chức
+                để
+                tạo điều kiện cho một giải pháp chính trị, hy vọng có thể thương lượng với phía Bắc Việt Nam.</li>
+              <li><strong>Mất lòng tin trong nội bộ:</strong> Nhiều tướng lĩnh và chính trị gia VNCH cho rằng sự tại
+                vị
+                của ông Thiệu là một trở ngại cho việc tìm kiếm một giải pháp hòa bình hoặc cứu vãn tình thế.</li>
+              <li><strong>Tình hình Sài Gòn nguy cấp:</strong> Quân Giải phóng đã áp sát Xuân Lộc, "cánh cửa thép"
+                phía
+                Đông Sài Gòn, và các hướng khác cũng bị uy hiếp nghiêm trọng.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến sau từ chức:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Phó Tổng thống Trần Văn Hương lên thay, nhưng chỉ tại vị được một tuần. Sau đó, Dương Văn Minh, người
+              được
+              cho là có thể chấp nhận được với phía cách mạng, lên nắm quyền với hy vọng tìm kiếm một giải pháp thương
+              lượng. Tuy nhiên, tình thế đã không thể đảo ngược.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Việc Nguyễn Văn Thiệu từ chức là một dấu hiệu rõ ràng về sự sụp đổ không thể tránh khỏi của chế độ Việt
+              Nam Cộng hòa. Nó cho thấy:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li>Sự tan rã về mặt chính trị và tinh thần của chính quyền Sài Gòn.</li>
+              <li>Sự thất bại hoàn toàn của chính sách "Việt Nam hóa chiến tranh" của Mỹ.</li>
+              <li>Mở đường cho những diễn biến cuối cùng dẫn đến sự kiện ngày 30/4/1975.</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed">
+              Dù việc từ chức của ông Thiệu không ngăn được đà tiến công của Quân Giải phóng, nó đã loại bỏ một trong
+              những nhân vật chủ chốt nhất của chế độ Sài Gòn, làm suy yếu thêm khả năng kháng cự và đẩy nhanh quá
+              trình
+              kết thúc chiến tranh.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/nguyen-van-thieu-tu-chuc.jpg" alt="Nguyễn Văn Thiệu phát biểu từ chức"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Hình ảnh Tổng thống Nguyễn Văn Thiệu trong bài phát
+                biểu
+                từ chức.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy"
+                src="images/presidentnguyenvanthieuinameetingwithambassadormartinandothers-whitehousephoto-1.jpg"
+                alt="Báo chí đưa tin Thiệu từ chức"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Trang báo đưa tin về sự kiện Nguyễn Văn Thiệu từ chức
+                .</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Trích dẫn từ bài phát biểu từ chức (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Tôi yêu cầu người Mỹ giữ lời hứa của họ. Nhưng họ đã không làm. Họ đã bỏ rơi chúng tôi." (Trích đoạn
+              được
+              cho là từ bài phát biểu của Nguyễn Văn Thiệu)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 8: Chiến dịch Hồ Chí Minh -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-star-of-life"></i></span>
+            <!-- Icon cho chiến dịch quyết định -->
+          </div>
+          <div class="timeline-date">26/04 – 30/04/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Chiến dịch Hồ Chí Minh (26/04 – 30/04/1975)
+          </h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Tóm tắt chiến dịch:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Chiến dịch Hồ Chí Minh, ban đầu có tên là Chiến dịch Giải phóng Sài Gòn - Gia Định, là chiến dịch quân
+              sự
+              cuối cùng của Quân Giải phóng miền Nam Việt Nam trong Cuộc Tổng tiến công và nổi dậy mùa Xuân 1975.
+              Chiến
+              dịch diễn ra từ ngày 26 tháng 4 đến ngày 30 tháng 4 năm 1975, với mục tiêu giải phóng Sài Gòn, thủ đô
+              của
+              Việt Nam Cộng hòa, và kết thúc Chiến tranh Việt Nam.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Bối cảnh và Quyết tâm chiến lược:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Sau những thắng lợi vang dội ở Tây Nguyên và Huế - Đà Nẵng, thời cơ chiến lược để giải phóng hoàn toàn
+              miền Nam đã chín muồi. Ngày 14/4/1975, Bộ Chính trị phê chuẩn kế hoạch giải phóng Sài Gòn - Gia Định
+              mang
+              tên Chiến dịch Hồ Chí Minh. Quyết tâm chiến lược là "Thần tốc, táo bạo, bất ngờ, chắc thắng", tập trung
+              lực lượng mạnh nhất, thực hiện tổng công kích và tổng khởi nghĩa, đập tan toàn bộ quân địch, chiếm Sài
+              Gòn
+              trong thời gian ngắn nhất.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Lực lượng tham gia:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li><strong>Quân Giải phóng:</strong> Gồm 5 quân đoàn chủ lực (Quân đoàn 1, 2, 3, 4 và Đoàn 232 - tương
+                đương quân đoàn), cùng các đơn vị đặc công, biệt động, pháo binh, xe tăng, không quân và lực lượng vũ
+                trang địa phương. Tổng quân số khoảng 270.000 người, chưa kể lực lượng nổi dậy của quần chúng.</li>
+              <li><strong>Quân đội VNCH:</strong> Lực lượng phòng thủ Sài Gòn gồm Quân đoàn III, Biệt khu Thủ đô, Sư
+                đoàn Nhảy dù, Sư đoàn Thủy quân Lục chiến và các đơn vị tổng trù bị khác. Mặc dù quân số đông (khoảng
+                245.000 quân chính quy và 250.000 phòng vệ dân sự), nhưng tinh thần đã rệu rã, tổ chức rối loạn.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến chính:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li><strong>Ngày 26/04:</strong> Chiến dịch chính thức mở màn. Các cánh quân lớn của Quân Giải phóng
+                đồng
+                loạt tiến công từ 5 hướng:
+                <ul class="list-disc list-inside ml-6 mt-1 space-y-1">
+                  <li><strong>Hướng Bắc:</strong> Quân đoàn 1 đánh chiếm Bộ Tổng Tham mưu VNCH.</li>
+                  <li><strong>Hướng Tây Bắc:</strong> Quân đoàn 3 đánh chiếm sân bay Tân Sơn Nhất.</li>
+                  <li><strong>Hướng Đông và Đông Nam:</strong> Quân đoàn 2 và Quân đoàn 4 đánh chiếm các mục tiêu quan
+                    trọng như Bộ Tư lệnh Hải quân, Tổng Nha Cảnh sát, Đài phát thanh, Dinh Độc Lập.</li>
+                  <li><strong>Hướng Tây Nam:</strong> Đoàn 232 cắt Đường số 4, chặn đường rút lui của địch về Đồng
+                    bằng
+                    sông Cửu Long.</li>
+                </ul>
+              </li>
+              <li><strong>Ngày 26-28/04:</strong> Quân Giải phóng chọc thủng các tuyến phòng thủ vòng ngoài của địch,
+                tiêu diệt và làm tan rã nhiều sư đoàn chủ lực VNCH. Trận Xuân Lộc, "cánh cửa thép" phía Đông Sài Gòn,
+                kết thúc với thắng lợi thuộc về Quân Giải phóng sau nhiều ngày giao tranh ác liệt trước đó.</li>
+              <li><strong>Ngày 28/04:</strong> Tổng thống Trần Văn Hương từ chức, Dương Văn Minh lên thay với hy vọng
+                tìm kiếm một giải pháp thương lượng. Phi đội Quyết Thắng của Không quân Nhân dân Việt Nam (sử dụng máy
+                bay A-37 chiếm được của địch) ném bom sân bay Tân Sơn Nhất, gây hoang mang lớn.</li>
+              <li><strong>Ngày 29/04:</strong> Các cánh quân của Quân Giải phóng áp sát Sài Gòn. Mỹ tiến hành Chiến
+                dịch
+                Frequent Wind, cuộc di tản bằng trực thăng quy mô lớn cuối cùng của người Mỹ và một số người Việt Nam
+                khỏi Sài Gòn.</li>
+              <li><strong>Sáng 30/04:</strong>
+                <ul class="list-disc list-inside ml-6 mt-1 space-y-1">
+                  <li>Các đơn vị Quân Giải phóng đồng loạt tổng công kích vào nội đô Sài Gòn.</li>
+                  <li><strong>10h45:</strong> Xe tăng của Lữ đoàn xe tăng 203 (Quân đoàn 2) húc đổ cổng Dinh Độc Lập.
+                    Đại đội trưởng Bùi Quang Thận cắm cờ Mặt trận Dân tộc Giải phóng miền Nam Việt Nam lên nóc Dinh.
+                  </li>
+                  <li><strong>11h30:</strong> Tổng thống Dương Văn Minh tuyên bố đầu hàng vô điều kiện trên Đài phát
+                    thanh Sài Gòn.</li>
+                </ul>
+              </li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Kết quả và Ý nghĩa lịch sử:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Chiến dịch Hồ Chí Minh toàn thắng, kết thúc 21 năm kháng chiến chống Mỹ cứu nước của dân tộc Việt Nam.
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li>Giải phóng hoàn toàn miền Nam, chấm dứt ách thống trị của chủ nghĩa thực dân mới.</li>
+              <li>Hoàn thành sự nghiệp thống nhất đất nước, đưa Việt Nam bước vào kỷ nguyên mới: kỷ nguyên độc lập,
+                thống nhất, cả nước đi lên chủ nghĩa xã hội.</li>
+              <li>Là một thắng lợi vĩ đại của dân tộc Việt Nam, có tầm vóc quốc tế và ý nghĩa thời đại sâu sắc, cổ vũ
+                mạnh mẽ phong trào giải phóng dân tộc trên thế giới.</li>
+              <li>Chứng minh sự lãnh đạo tài tình, sáng suốt của Đảng Lao động Việt Nam, sức mạnh của chiến tranh nhân
+                dân và ý chí quyết chiến quyết thắng của toàn dân tộc.</li>
+            </ul>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/xe-tang-tien-vao-dinh-doc-lap.jpg" alt="Xe tăng tiến vào Dinh Độc Lập"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-56">
+              <p class="text-sm text-gray-600 mt-1 text-center">Khoảnh khắc xe tăng Quân Giải phóng tiến vào Dinh Độc
+                Lập.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/co-giai-phong-tung-bay-noc-dinh-doc-lap.jpg"
+                alt="Cờ Giải phóng trên nóc Dinh Độc Lập"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-56">
+              <p class="text-sm text-gray-600 mt-1 text-center">Cờ Giải phóng tung bay trên nóc Dinh Độc Lập
+                .</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/nguoi-sai-gon-do-ra-duong.webp" alt="Nhân dân Sài Gòn chào đón giải phóng"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-56">
+              <p class="text-sm text-gray-600 mt-1 text-center">Nhân dân Sài Gòn đổ ra đường chào đón Quân Giải phóng
+                (Placeholder).</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Mệnh lệnh lịch sử (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Thần tốc, thần tốc hơn nữa; táo bạo, táo bạo hơn nữa; tranh thủ từng phút, từng giờ; xốc tới mặt trận;
+              giải phóng miền Nam; quyết chiến và toàn thắng!" (Mệnh lệnh của Đại tướng Võ Nguyên Giáp - Placeholder)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 9: Giải phóng Sài Gòn, Kết thúc Chiến tranh -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-flag-checkered"></i></span>
+            <!-- Icon cho chiến thắng cuối cùng -->
+          </div>
+          <div class="timeline-date">30/04/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Giải phóng Sài Gòn, Kết thúc Chiến tranh
+            (30/04/1975)</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Khoảnh khắc lịch sử:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Ngày 30 tháng 4 năm 1975 là ngày lịch sử trọng đại của dân tộc Việt Nam. Sau những đòn tấn công như vũ
+              bão của Chiến dịch Hồ Chí Minh, các cánh quân của Quân Giải phóng đã đồng loạt tiến vào Sài Gòn, sào
+              huyệt
+              cuối cùng của chế độ Việt Nam Cộng hòa.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến chính trong ngày 30/04/1975:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li><strong>Rạng sáng:</strong> Các đơn vị Quân Giải phóng từ năm hướng tiếp tục tiến công mạnh mẽ vào
+                trung tâm Sài Gòn, chiếm giữ các mục tiêu quan trọng đã được phân công như sân bay Tân Sơn Nhất, Bộ
+                Tổng
+                Tham mưu, Tổng Nha Cảnh sát, Đài phát thanh, Biệt khu Thủ đô.</li>
+              <li><strong>Khoảng 10h45:</strong> Xe tăng T-54 mang số hiệu 843 của Lữ đoàn xe tăng 203, Quân đoàn 2,
+                do Đại đội trưởng Bùi Quang Thận chỉ huy, húc đổ cổng phụ Dinh Độc Lập. Tiếp đó, xe tăng Type 59 mang
+                số
+                hiệu 390 do Chính trị viên Vũ Đăng Toàn chỉ huy húc đổ cổng chính.</li>
+              <li><strong>Khoảng 11h30:</strong> Đại đội trưởng Bùi Quang Thận cùng các chiến sĩ xông lên nóc Dinh Độc
+                Lập, hạ cờ Việt Nam Cộng hòa xuống và kéo lá cờ Mặt trận Dân tộc Giải phóng miền Nam Việt Nam lên. Đây
+                là thời khắc đánh dấu sự sụp đổ hoàn toàn của chính quyền Sài Gòn.</li>
+              <li><strong>Cùng thời điểm:</strong> Tổng thống Dương Văn Minh cùng toàn bộ nội các của chính quyền Sài
+                Gòn có mặt tại Dinh Độc Lập. Sau khi Quân Giải phóng vào Dinh, ông Dương Văn Minh đã được đưa ra Đài
+                phát thanh Sài Gòn.</li>
+              <li><strong>Trưa 30/04/1975:</strong> Tại Đài phát thanh Sài Gòn, Tổng thống Dương Văn Minh đọc lời
+                tuyên
+                bố đầu hàng vô điều kiện: "Tôi, Đại tướng Dương Văn Minh, Tổng thống chính quyền Sài Gòn, kêu gọi Quân
+                lực Việt Nam Cộng hòa hạ vũ khí đầu hàng không điều kiện Quân Giải phóng miền Nam Việt Nam. Tôi tuyên
+                bố
+                chính quyền Sài Gòn từ trung ương đến địa phương phải giải tán hoàn toàn, giao chính quyền từ trung
+                ương
+                đến địa phương lại cho Chính phủ Cách mạng Lâm thời Cộng hòa miền Nam Việt Nam."</li>
+              <li>Ngay sau đó, đại diện Quân Giải phóng cũng tuyên bố chấp nhận sự đầu hàng và khẳng định Sài Gòn đã
+                được giải phóng.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa lịch sử vĩ đại:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Sự kiện ngày 30/4/1975 có ý nghĩa vô cùng to lớn:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li><strong>Kết thúc thắng lợi hoàn toàn cuộc kháng chiến chống Mỹ, cứu nước:</strong> Đây là cuộc chiến
+                tranh giải phóng dân tộc dài nhất, gian khổ nhất và vĩ đại nhất trong lịch sử chống ngoại xâm của dân
+                tộc Việt Nam.</li>
+              <li><strong>Chấm dứt ách thống trị của chủ nghĩa thực dân mới của Mỹ:</strong> Lật đổ hoàn toàn chính
+                quyền tay sai, giải phóng hoàn toàn miền Nam.</li>
+              <li><strong>Hoàn thành sự nghiệp thống nhất đất nước:</strong> Non sông Việt Nam thu về một mối sau hơn
+                20
+                năm chia cắt đau thương. Mở ra một kỷ nguyên mới cho dân tộc: kỷ nguyên độc lập, thống nhất, cả nước
+                đi
+                lên chủ nghĩa xã hội.</li>
+              <li><strong>Là nguồn cổ vũ to lớn cho phong trào cách mạng thế giới:</strong> Góp phần làm suy yếu chủ
+                nghĩa đế quốc, cổ vũ các dân tộc bị áp bức đứng lên đấu tranh giành độc lập, tự do.</li>
+              <li><strong>Khẳng định sự lãnh đạo đúng đắn, tài tình của Đảng Cộng sản Việt Nam</strong> (trước đây là
+                Đảng Lao động Việt Nam), sức mạnh vô địch của chiến tranh nhân dân, chủ nghĩa anh hùng cách mạng và ý
+                chí, khát vọng hòa bình, thống nhất của toàn dân tộc.</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed">
+              Ngày 30/4 đã trở thành ngày hội lớn của dân tộc, ngày non sông sum họp, ngày của niềm tự hào và khát
+              vọng
+              vươn lên của mỗi người dân Việt Nam.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/dinh-doc-lap-thoi-khac-lich-su.jpg" alt="Dinh Độc Lập ngày 30/4/1975"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-56">
+              <p class="text-sm text-gray-600 mt-1 text-center">Dinh Độc Lập trong giờ phút lịch sử.</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/duong_van_minh2.jpg" alt="Tổng thống Dương Văn Minh đầu hàng"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-56">
+              <p class="text-sm text-gray-600 mt-1 text-center">Tổng thống Dương Văn Minh đọc tuyên bố đầu hàng
+                .</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/an mung Giai-Phongjpg.jpg" alt="Nhân dân ăn mừng chiến thắng"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-56">
+              <p class="text-sm text-gray-600 mt-1 text-center">Nhân dân Sài Gòn và cả nước vui mừng ngày thống nhất
+                .</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Lời Tuyên bố đầu hàng của Tổng thống Dương Văn
+              Minh (trích):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Đường lối và chủ trương của chúng tôi là hòa giải và hòa hợp dân tộc để cứu sinh mạng đồng bào. Tôi tin
+              tưởng sâu xa vào sự hòa giải giữa người Việt Nam để khỏi phí phạm xương máu người Việt Nam..." (Trích
+              lời
+              tuyên bố - Placeholder)
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Cột Mốc 9.1: Xe tăng tiến vào Dinh Độc Lập -->
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-truck-monster"></i></span> <!-- Icon xe tăng -->
+          </div>
+          <div class="timeline-date">Khoảng 10h45, 30/04/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Cột Mốc 9.1: Xe tăng Quân Giải phóng tiến
+            vào
+            Dinh Độc Lập</h3>
+          <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Sự kiện then chốt:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Một trong những hình ảnh mang tính biểu tượng nhất của ngày 30/4/1975 là khoảnh khắc những chiếc xe tăng
+              của Quân Giải phóng húc đổ cổng Dinh Độc Lập, tiến vào sào huyệt cuối cùng của chính quyền Sài Gòn. Đây
+              là
+              đỉnh điểm của Chiến dịch Hồ Chí Minh lịch sử, đánh dấu sự toàn thắng của cuộc kháng chiến chống Mỹ, cứu
+              nước.
+            </p>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Diễn biến cụ thể:</h4>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-2">
+              <li>Lữ đoàn xe tăng 203 (Quân đoàn 2) là một trong những đơn vị chủ lực đảm nhận nhiệm vụ thọc sâu, đánh
+                chiếm Dinh Độc Lập.</li>
+              <li>Vào khoảng 10h45 ngày 30/4/1975, chiếc xe tăng T-54 mang số hiệu 843 do Đại đội trưởng Bùi Quang
+                Thận
+                chỉ huy đã dẫn đầu đội hình, húc đổ cổng phụ của Dinh Độc Lập.</li>
+              <li>Ngay sau đó, chiếc xe tăng Type 59 mang số hiệu 390 do Chính trị viên Đại đội Vũ Đăng Toàn chỉ huy
+                cũng lao tới, húc tung cánh cổng chính.</li>
+              <li>Các chiến sĩ xe tăng nhanh chóng triển khai đội hình chiến đấu, làm chủ khu vực Dinh Độc Lập, phối
+                hợp
+                cùng các đơn vị bộ binh tiến vào bên trong.</li>
+            </ul>
+            <h4 class="text-xl font-semibold text-vietnam-red mb-3">Ý nghĩa biểu tượng:</h4>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              Hình ảnh xe tăng tiến vào Dinh Độc Lập không chỉ là một thắng lợi quân sự mà còn mang ý nghĩa biểu tượng
+              sâu sắc:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 mb-4 leading-relaxed space-y-1">
+              <li><strong>Sự sụp đổ của một chế độ:</strong> Chiếc cổng Dinh Độc Lập bị húc đổ tượng trưng cho sự sụp
+                đổ
+                hoàn toàn của chế độ Việt Nam Cộng hòa.</li>
+              <li><strong>Sức mạnh của Quân Giải phóng:</strong> Khẳng định sức mạnh quân sự, ý chí quyết chiến quyết
+                thắng của Quân đội Nhân dân Việt Nam.</li>
+              <li><strong>Khát vọng hòa bình, thống nhất:</strong> Là đỉnh cao của cuộc đấu tranh giải phóng dân tộc,
+                thống nhất đất nước kéo dài hàng thập kỷ.</li>
+              <li><strong>Hình ảnh đi vào lịch sử:</strong> Khoảnh khắc này đã được ghi lại và trở thành một trong
+                những
+                biểu tượng bất diệt của chiến thắng, được khắc sâu trong tâm trí người dân Việt Nam và bạn bè quốc tế.
+              </li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed">
+              Những chiếc xe tăng lịch sử này, đặc biệt là xe 843 và 390, hiện đang được trưng bày tại các bảo tàng
+              như
+              những chứng nhân của một thời khắc lịch sử hào hùng.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/xe-tang-843-huc-cong.jpg" alt="Xe tăng 843 húc đổ cổng Dinh Độc Lập"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Xe tăng 843 húc đổ cổng Dinh Độc Lập (Ảnh tư liệu).
+              </p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+              <img loading="lazy" src="images/xe-tang-390-tien-vao-dinh-doc-lap.jpg"
+                alt="Xe tăng 390 tiến vào Dinh Độc Lập"
+                class="rounded-lg shadow-sm w-full h-auto object-cover mb-2 max-h-64">
+              <p class="text-sm text-gray-600 mt-1 text-center">Xe tăng 390 tiến vào khuôn viên Dinh Độc Lập (Ảnh tư
+                liệu).</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <h5 class="text-lg font-semibold text-vietnam-brown mb-2">Nhân chứng lịch sử (ví dụ):</h5>
+            <blockquote
+              class="border-l-4 border-vietnam-gold pl-4 py-2 bg-yellow-50 text-gray-700 italic text-sm md:text-base">
+              "Khi chiếc xe tăng đầu tiên húc đổ cánh cổng Dinh Độc Lập, chúng tôi biết rằng giờ phút lịch sử đã điểm.
+              Đó là khoảnh khắc không thể nào quên, báo hiệu Sài Gòn hoàn toàn giải phóng." (Lời kể của một chiến sĩ
+              giải phóng - Placeholder)
+            </blockquote>
+          </div>
+        </div>
+        <div class="timeline-item gsap-reveal">
+          <div class="timeline-dot">
+            <span class="text-white text-sm"><i class="fas fa-flag-checkered"></i></span>
+          </div>
+          <div class="timeline-date">30/04/1975</div>
+          <h3 class="text-2xl font-bold mb-3 text-vietnam-red font-serif">Ngày Giải Phóng Miền Nam, Thống Nhất Đất
+            Nước
+          </h3>
+          <p class="text-lg mb-4 text-gray-700">
+            <!-- **NỘI DUNG CẦN THAY THẾ:** -->
+            Quân Giải phóng tiến vào Sài Gòn, Dinh Độc Lập được giải phóng, kết thúc thắng lợi cuộc kháng chiến chống
+            Mỹ, cứu nước. Đất nước hoàn toàn độc lập, thống nhất.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div> <img src="images/co-giai-phong-tung-bay-noc-dinh-doc-lap2.jpg" alt="Biểu tượng chiến thắng"
+                class="rounded-lg shadow-md w-full h-48 object-contain p-4 bg-white">
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <h4 class="font-bold text-vietnam-red mb-2">Khoảnh khắc lịch sử</h4>
+              <p class="text-gray-700"> Lá cờ giải phóng tung bay trên nóc Dinh Độc Lập, đánh dấu sự toàn thắng của
+                dân
+                tộc Việt Nam.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Thêm các mục timeline khác tại đây -->
+      </div>
+    </div>
+  </section>
+  <!-- Lời Kết Section -->
+  <section id="loi-ket" class="py-16 md:py-24 bg-vietnam-red text-white mt-10">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center mx-auto !text-white after:!bg-vietnam-yellow gsap-reveal">Lời Kết</h2>
+      <div class="max-w-3xl mx-auto mt-8 text-center">
+        <p class="text-lg md:text-xl leading-relaxed mb-6 gsap-reveal">
+          <!-- **NỘI DUNG CẦN THAY THẾ:** -->
+          50 năm đã trôi qua, nhưng khí thế hào hùng của Ngày Giải phóng miền Nam, thống nhất đất nước vẫn còn vang
+          vọng
+          mãi. Đây là dịp để chúng ta cùng nhìn lại quá khứ, tự hào về truyền thống dân tộc, và vững bước tiến lên xây
+          dựng một Việt Nam ngày càng giàu mạnh, văn minh.
+        </p>
+        <p class="text-lg md:text-xl leading-relaxed gsap-reveal">
+          <!-- **NỘI DUNG CẦN THAY THẾ:** -->
+          Xin chân thành cảm ơn sự quan tâm và theo dõi của quý vị!
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-vietnam-brown text-white py-10 text-center">
+    <div class="container mx-auto px-6">
+      <div class="mb-4">
+        <img src="images/vietnam-flag.svg" alt="Cờ Việt Nam" class="h-12 w-auto mx-auto mb-2">
+        <p class="text-lg font-semibold font-serif">Kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước.</p>
+        <p class="text-sm">(30/04/1975 - 30/04/2025)</p>
+      </div>
+      <p class="text-sm">&copy; Bản quyền thuộc về Nhóm 27 - TKW25. 2025.</p>
+      <div class="mt-4">
+        <a href="#hero" class="text-vietnam-yellow hover:text-white transition-colors text-sm">Quay lại đầu trang <i
+            class="fas fa-arrow-up ml-1"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="images/animations-new.js"></script> <!-- New GSAP animations script -->
+  <script src="images/gallery-3d.js"></script>
+  <script src="images/lightbox.js" defer></script> <!-- Đảm bảo file này tồn tại và đúng đường dẫn -->
+  <script src="main.js" defer></script>
+</body>
+
+</html>
